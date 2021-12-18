@@ -1,6 +1,6 @@
 variable "stage_name" {
-    default = "test"
+  default = "test"
 }
 
-variable "api_gateway"{
+variable "api_gateway" {
 }

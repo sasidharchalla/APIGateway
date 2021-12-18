@@ -1,6 +1,6 @@
-variable "function_name"{
+variable "function_name" {
 }
 
-variable "api_gateway"{
+variable "api_gateway" {
 }
 

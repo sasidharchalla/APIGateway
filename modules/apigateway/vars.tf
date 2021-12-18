@@ -1,2 +1,2 @@
-variable "api_name"{
+variable "api_name" {
 }
