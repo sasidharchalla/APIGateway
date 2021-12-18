@@ -13,11 +13,7 @@ data "template_file" "lambda_template" {
     template = "${path.module}/lambda_names.yaml"
 }
 
-data "local_file" "lambda_names" {
+data "local_file" "lambda_names_file" {
     filename = "${data.template_file.lambda_template.rendered}"
     depends_on = [null_resource.get_lambda_func_name]
-}
-
-locals {
-  list_lambda_names = toset(yamldecode(data.local_file.lambda_names.content))
 }
