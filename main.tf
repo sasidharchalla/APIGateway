@@ -4,7 +4,7 @@ module "apigateway" {
 }
 
 locals {
-  list_lambda_names = toset(yamldecode(file(${var.lambda_file_path})))
+  list_lambda_names = toset(yamldecode(file("${var.lambda_file_path}")))
 }
 
 module "apiintegration" {
