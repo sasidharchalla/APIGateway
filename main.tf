@@ -10,7 +10,7 @@ module "apigateway" {
 }
 
 locals {
-  list_lambda_names = toset(yamldecode(module.getlambdas.lambda_names))
+  list_lambda_names = toset(yamldecode(file(./modules/getlambdas/lambda_names.yaml)))
 }
 
 module "apiintegration" {
