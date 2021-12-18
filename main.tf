@@ -1,9 +1,3 @@
-module "getlambdas" {
-  source = "./modules/getlambdas"
-  lambda_name_query_text = var.lambda_name_query_text
-  region = var.region
-}
-
 module "apigateway" {
   source                    = "./modules/apigateway"
   api_name                  = var.api_name
