@@ -24,10 +24,10 @@ locals {
   list_lambda_names = tolist(yamldecode(data.local_file.lambda_names.content))
 }
 
-module "apigateway" {
+/*module "apigateway" {
   source                    = "./modules/apigateway"
   api_name                  = var.api_name
-}
+}*/
 
 output "lambda_names" {
  value = local.list_lambda_names[2]
