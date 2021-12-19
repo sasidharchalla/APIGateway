@@ -27,3 +27,6 @@ jobs:
     
     - name: Get Lambda functions
       run: aws lambda list-functions --no-verify-ssl --region ${{ env.AWS_REGION }}
+      
+    - name: terraform version
+      run: terraform --version
