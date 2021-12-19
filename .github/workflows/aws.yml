@@ -1,0 +1,29 @@
+name: AWS cli testing
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: "ap-south-1"                  # set this to your preferred AWS region, e.g. us-west-1
+
+jobs:
+  APIGateway_Lambda_Integration:
+    name: API Gateway Lambda Integration
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    
+    - name: Get Lambda functions
+      run: aws lambda list-functions --no-verify-ssl --region ${{ env.AWS_REGION }}
